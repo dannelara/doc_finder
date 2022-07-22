@@ -1,25 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import GlobalState from "./globals/GlobalState";
+import { Routes, Route, BrowserRouter as Router } from "react-router-dom";
+import { Wrapper } from "./utils";
+import { Main, Header, Footer, PageNotFound, Finder } from "./components";
 
-function App() {
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <GlobalState>
+      <Router>
+        <Wrapper type="big">
+          <Header />
+          <Routes>
+            <Route exact path="/" element={<Main />} />
+            <Route exact path="/finder" element={<Finder />} />
+            {/* <Route path="/login" exact element={<LoginPage />} /> */}
+            <Route path="*" element={<PageNotFound />} />
+          </Routes>
+          <Footer>Design and implementation by Daniel Martinez Lara.</Footer>
+        </Wrapper>
+      </Router>
+    </GlobalState>
   );
 }
-
-export default App;
