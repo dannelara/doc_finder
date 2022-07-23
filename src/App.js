@@ -8,16 +8,16 @@ export default function App() {
   return (
     <GlobalState>
       <Router>
-        <Wrapper type="big">
-          <Header />
+        <Header />
+        <Wrapper type="content">
           <Routes>
-            <Route exact path="/" element={<Main />} />
-            <Route exact path="/finder" element={<Finder />} />
+            {/* <Route exact path="/" element={<Main />} /> */}
+            <Route exact path="/" element={<Finder />} />
             {/* <Route path="/login" exact element={<LoginPage />} /> */}
             <Route path="*" element={<PageNotFound />} />
           </Routes>
-          <Footer>Design and implementation by Daniel Martinez Lara.</Footer>
         </Wrapper>
+        <Footer>Design and implementation by Daniel Martinez Lara.</Footer>
       </Router>
     </GlobalState>
   );

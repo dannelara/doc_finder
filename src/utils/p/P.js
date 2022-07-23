@@ -1,5 +1,5 @@
 import React from "react";
-
-export default function P() {
-  return <div>P</div>;
+import StyledP from "./Styles";
+export default function P({ type, children }) {
+  return <StyledP type={type}>{children}</StyledP>;
 }

@@ -9,11 +9,12 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'Libre Franklin', sans-serif; 
   }
 
-  html, body { height: 100vh; width: 100vw; margin: 0; }
-  #root {
-    height: 100vh;
-    width: 100vw;
-  }
+
+  html, body, #root {
+
+    height: 100%;
+    margin: 0;
+}
   `;
 
 export default GlobalStyle;

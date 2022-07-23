@@ -2,10 +2,14 @@ import styled from "styled-components";
 
 const StyledWrapper = styled.div`
   ${(props) =>
-    props.type === "big" && {
+    props.type === "content" && {
       height: "100%",
       width: "100%",
       backgroundColor: props.theme.colors.main,
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      flexWrap: "wrap",
       // //   position: "relative",
       // // minHeight: "100vh",
       // // width: "100vw",
