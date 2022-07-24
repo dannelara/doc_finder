@@ -12,7 +12,6 @@ const Theme = {
   content: {
     boxShadow: "inset 0 0 0 1px rgba(0, 0, 0, 0.1)",
     border: "rgba(0, 0, 0, 0.1)",
-
     sub: "rgb(176,196,222)",
     default: "rgb(255,255,255)",
   },

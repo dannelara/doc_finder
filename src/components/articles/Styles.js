@@ -38,13 +38,12 @@ export const Container = styled.div`
     props.type === "content-flex" && {
       width: "80%",
       height: "90%",
-      boxShadow: props.theme.content.boxShadow,
+
       display: "flex",
       alignItems: "center",
       justifyContent: "center",
       flexWrap: "wrap",
       overflowY: "scroll",
-      gap: "15px",
     }}
 `;
 
@@ -54,7 +53,10 @@ export const TopContainer = styled.div`
       top: "0",
       width: "100%",
       height: "10%",
-      boxShadow: props.theme.content.boxShadow,
+      //   boxShadow: props.theme.content.boxShadow,
+
+      border: `2px solid ${props.theme.content.border}`,
+      borderRight: "none",
       display: "flex",
       alignItems: "center",
       justifyContent: "center",
@@ -69,6 +71,10 @@ export const TopContainer = styled.div`
       alignItems: "center",
       justifyContent: "center",
       borderBottom: `1px solid ${props.theme.content.border}`,
+
+      "&>*:last-child": {
+        borderRight: "none",
+      },
     }}
 
     
@@ -79,10 +85,19 @@ export const TopContainer = styled.div`
       alignItems: "center",
       justifyContent: "center",
       height: "80%",
-      gap: "2px",
+      gap: "5px",
       borderRight: `1px solid ${props.theme.content.border}`,
       "&>*:last-child": {
         borderBottom: "none",
       },
+    }}
+
+    ${(props) =>
+    props.type === "sub-small" && {
+      flexGrow: 1,
+      display: "flex",
+      alignContent: "center",
+      justifyContent: "center",
+      height: "100%",
     }}
 `;

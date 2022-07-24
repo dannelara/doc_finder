@@ -9,7 +9,11 @@ const StyledButton = styled.button`
   ${(props) =>
     props.btnType === "next_page" && {
       background: "transparent",
-
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      flexWrap: "wrap",
+      gap: "5px",
       // height: "25px",
       // padding: "0",
       // width: "100px",

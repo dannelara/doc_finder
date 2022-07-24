@@ -3,7 +3,7 @@ import styled from "styled-components";
 const StyledP = styled.p`
   ${(props) =>
     props.type === "default" && {
-      fontSize: "13px",
+      fontSize: "11px",
       color: "black",
       fontWeight: "1000",
       textAlign: "center",
@@ -16,7 +16,7 @@ const StyledP = styled.p`
 
   ${(props) =>
     props.type === "light" && {
-      fontSize: "13px",
+      fontSize: "11px",
       color: "grey",
       fontWeight: "1000",
       textAlign: "center",
@@ -24,14 +24,14 @@ const StyledP = styled.p`
 
     ${(props) =>
     props.type === "title" && {
-      fontSize: "15px",
+      fontSize: "12px",
       color: "black",
       fontWeight: "1000",
       textAlign: "center",
     }}
     ${(props) =>
     props.type === "desc" && {
-      fontSize: "15px",
+      fontSize: "12px",
       color: "grey",
       fontWeight: "1000",
       textAlign: "center",

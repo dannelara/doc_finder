@@ -12,7 +12,7 @@ export const Container = styled.div`
       justifyContent: "start",
       backgroundColor: props.theme.colors.content_light,
       flexWrap: "wrap",
-      borderBottom: `1px solid ${props.theme.content.border}`,
+
       "@media screen and (max-width: 650px)": {
         display: "none",
       },

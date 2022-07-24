@@ -48,7 +48,50 @@ const StyledInput = styled.input`
       height: "100%",
       padding: "0.1em",
       caretColor: "black",
-      textAlign: "center",
+      textAlign: "start",
+      appearance: "none",
+      fontSize: "15px",
+      fontWeight: "600",
+      border: `2px solid ${props.theme.content.border}`,
+      "::placeholder": {
+        color: "#778899",
+        opacity: "1" /* Firefox */,
+      },
+
+      ":-ms-input-placeholder": {
+        color: "#778899",
+      },
+
+      "::-ms-input-placeholder": {
+        color: "#778899",
+      },
+
+      "&:focus": {
+        outline: "none",
+        boxShadow: `inset 1em 2em 3em 0 ${props.theme.colors.main}`,
+        color: "black",
+      },
+
+      "&:hover": {
+        cursor: "pointer",
+      },
+
+      "@media screen and (max-width: 600px)": {
+        minWidth: "100%",
+      },
+    }}
+
+
+    
+  ${(props) =>
+    props.inputType === "search-text" && {
+      border: "none",
+      focus: "auto",
+      width: "100%",
+      height: "100%",
+      padding: "0.1em",
+      caretColor: "black",
+      textAlign: "start",
       appearance: "none",
       fontSize: "15px",
       fontWeight: "600",

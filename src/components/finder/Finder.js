@@ -10,6 +10,7 @@ export default function Finder() {
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState(null);
   const [mode, setMode] = useState(0);
+  // const [page, setPage] = useState(1);
 
   const reset = () => {
     setSearchString("");
@@ -21,19 +22,34 @@ export default function Finder() {
 
   const onNextPage = async () => {
     await getArticles(data.dokumentlista["@nasta_sida"]);
+    // setPage(page + 1);
+    // console.log("current page", page);
   };
 
-  const getArticles = async (url) => {
+  const onPrevPage = async () => {
+    if (parseInt(data.dokumentlista["@sida"]) > 1) {
+      // setPage(page - 1);
+      // console.log("prev page", page);
+      await getArticles("", parseInt(data.dokumentlista["@sida"]) - 1);
+    }
+  };
+
+  const getArticles = async (url, page) => {
     try {
       setLoading(true);
 
-      const articles = await API.fetchArticles(
+      const data = await API.fetchArticles(
         url,
         searchString,
-        searchOptions
+        searchOptions,
+        page
       );
 
-      setData(articles);
+      // console.log(articles);
+      // setPage(parseInt(data.dokumentlista["@sida"]));
+      // console.log("current page", page);
+      // console.log("Nästa sida", page);
+      setData(data);
       setLoading(false);
     } catch (error) {
       console.error(error);
@@ -51,7 +67,11 @@ export default function Finder() {
       <SearchBar setMode={setMode} />
       <Container type="big-flex">
         <Container type="left">
-          <Articles data={data} nextPage={onNextPage}></Articles>
+          <Articles
+            data={data}
+            nextPage={onNextPage}
+            onPrevPage={onPrevPage}
+          ></Articles>
         </Container>
         <Container type="right"></Container>
       </Container>

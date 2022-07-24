@@ -25,7 +25,7 @@ export const Container = styled.div`
 
   ${(props) =>
     props.type === "big" && {
-      height: "250px",
+      height: "150px",
       width: "100%",
       display: "flex",
       alignContent: "center",
@@ -33,6 +33,14 @@ export const Container = styled.div`
       flexWrap: "wrap",
       borderBottom: `1px solid ${props.theme.content.border}`,
       gap: "15px",
+
+      "&:hover": {
+        cursor: "pointer",
+      },
+
+      //   "&:click": {
+      //     backgroundColor: "red",
+      //   },
     }}
 
   ${(props) =>
@@ -42,7 +50,7 @@ export const Container = styled.div`
       minHeight: "2em",
       display: "flex",
       textAlign: "center",
-      justifyContent: "center",
+      justifyContent: "start",
     }}
 
     ${(props) =>
@@ -68,21 +76,31 @@ export const Container = styled.div`
       display: "flex",
       textAlign: "center",
       justifyContent: "center",
+      flexWrap: "wrap",
     }}
 
+    ${(props) =>
+    props.type === "bottom-small" && {
+      minWidth: "100%",
+      height: "50%",
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+    }}
     ${(props) =>
     props.type === "bottom-sub" && {
       flexGrow: "1",
       height: "100%",
       display: "flex",
-      justifyContent: "center",
+      justifyContent: "start",
       alignItems: "center",
+      gap: "5px",
     }}
 `;
 
 export const StyledA = styled.a`
   color: blue;
-  font-size: 15px;
+  font-size: 11px;
   font-weight: 1000;
   &:visited {
     background-color: #f44336;

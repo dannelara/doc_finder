@@ -38,7 +38,7 @@ export const Container = styled.div`
       width: "60%",
       maxWidth: "60%",
       backgroundColor: props.theme.colors.content_light,
-      boxShadow: props.theme.content.boxShadow,
+      borderRight: `2px solid ${props.theme.content.border}`,
       //   backgroundColor: "red",
       //   minHeight: "100%",
       //   width: "100%",

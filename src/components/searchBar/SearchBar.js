@@ -59,7 +59,7 @@ export default function SearchBar({ getArticles }) {
           <Container type="sub-big">
             <Container type="sub">
               <Input
-                inputType="search"
+                inputType="search-text"
                 type="text"
                 placeHolder="Nyckelord eg. namn eller ord"
                 onChange={(e) => setUserInput(e.currentTarget.value)}

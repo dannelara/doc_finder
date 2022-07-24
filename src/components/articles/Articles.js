@@ -4,8 +4,10 @@ import { Container, TopContainer } from "./Styles";
 import Article from "../article/Article";
 import { GlobalStateContext } from "../../globals/GlobalState";
 import { Button, P } from "../../utils";
-export default function Articles({ data, nextPage }) {
-  //   console.log(data);
+
+import { AiOutlineArrowLeft, AiOutlineArrowRight } from "react-icons/ai";
+export default function Articles({ data, nextPage, onPrevPage }) {
+  console.log(data);
   const articles = data?.dokumentlista.dokument;
   const dokuments = data?.dokumentlista;
 
@@ -14,6 +16,18 @@ export default function Articles({ data, nextPage }) {
   const { searchString, setSearchString, searchOptions, setSearchOptions } =
     React.useContext(GlobalStateContext);
   //   console.log(articles);
+
+  const onClickArticleClick = (e) => {
+    const articlesContainter = document.querySelector("#articles");
+
+    const childrens = articlesContainter.children;
+
+    Array.from(childrens).forEach((child) => {
+      child.style.backgroundColor = "#ffff";
+    });
+
+    e.currentTarget.style.backgroundColor = "rgb(245,245,245)";
+  };
 
   return (
     <Container type="big">
@@ -36,9 +50,20 @@ export default function Articles({ data, nextPage }) {
                 <P type="default">Senaste först</P>
               </TopContainer>
               <TopContainer type="sub">
-                <Button btnType="next_page" onClick={nextPage}>
-                  <P type="default">Nästa sida </P>
-                </Button>
+                {parseInt(dokuments["@sida"]) > 1 && (
+                  <TopContainer type="sub-small">
+                    <Button btnType="next_page" onClick={onPrevPage}>
+                      <AiOutlineArrowLeft></AiOutlineArrowLeft>
+                      <P type="default">Förra sida </P>
+                    </Button>
+                  </TopContainer>
+                )}
+                <TopContainer type="sub-small">
+                  <Button btnType="next_page" onClick={nextPage}>
+                    <P type="default">Nästa sida </P>
+                    <AiOutlineArrowRight></AiOutlineArrowRight>
+                  </Button>
+                </TopContainer>
               </TopContainer>
             </TopContainer>
           </>
@@ -47,10 +72,16 @@ export default function Articles({ data, nextPage }) {
         )}
       </TopContainer>
       <Filter></Filter>
-      <Container type="content-flex">
+      <Container type="content-flex" id="articles">
         {articles ? (
           articles.map((article, key) => {
-            return <Article key={key} article={article} />;
+            return (
+              <Article
+                key={key}
+                article={article}
+                onClick={onClickArticleClick}
+              />
+            );
           })
         ) : (
           <>
