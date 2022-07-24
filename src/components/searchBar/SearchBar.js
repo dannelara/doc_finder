@@ -48,7 +48,7 @@ export default function SearchBar({ getArticles }) {
         setError_msg(error.message);
       }
     } else {
-      setError_msg("Sökord måste fyllas i.");
+      setError_msg("Sökord måste fyllas i");
     }
   };
 

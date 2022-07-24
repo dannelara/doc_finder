@@ -52,7 +52,8 @@ const StyledInput = styled.input`
       appearance: "none",
       fontSize: "15px",
       fontWeight: "600",
-      border: `2px solid ${props.theme.content.border}`,
+      border: `2px solid ${props.theme.content.input_border}`,
+      borderRadius: "2px",
       "::placeholder": {
         color: "#778899",
         opacity: "1" /* Firefox */,
@@ -95,7 +96,9 @@ const StyledInput = styled.input`
       appearance: "none",
       fontSize: "15px",
       fontWeight: "600",
-      border: `2px solid ${props.theme.content.border}`,
+      borderRadius: "2px",
+      border: `2px solid ${props.theme.content.input_border}`,
+
       "::placeholder": {
         color: "#778899",
         opacity: "1" /* Firefox */,
