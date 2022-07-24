@@ -13,13 +13,16 @@ export async function fetchNames() {
   }
 }
 
-export async function fetchArticles(nextUrl, keyword, searchOptions) {
+export async function fetchArticles(nextUrl, keyword, searchOptions, page) {
+  // console.log(page);
+  const currentPage = page ? page : 1;
+
   keyword = keyword.replace(" ", "+");
 
   let url;
 
   if (!nextUrl) {
-    url = `https://data.riksdagen.se/dokumentlista/?sok=${keyword}&doktyp=&rm=&from=${searchOptions.start}&tom=${searchOptions.end}&ts=&bet=&tempbet=&nr=&org=&iid=&avd=&webbtv=&talare=&exakt=&planering=&facets=&sort=datum&sortorder=desc&rapport=&utformat=json&a=s`;
+    url = `https://data.riksdagen.se/dokumentlista/?sok=${keyword}&doktyp=&rm=&from=${searchOptions.start}&tom=${searchOptions.end}&ts=&bet=&tempbet=&nr=&org=&iid=&avd=&webbtv=&talare=&exakt=&planering=&facets=&sort=datum&sortorder=desc&rapport=&utformat=json&a=s&p=${page}`;
   } else {
     url = nextUrl;
   }
