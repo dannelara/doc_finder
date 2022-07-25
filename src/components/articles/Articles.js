@@ -7,14 +7,19 @@ import { Button, P } from "../../utils";
 
 import { AiOutlineArrowLeft, AiOutlineArrowRight } from "react-icons/ai";
 export default function Articles({ data, nextPage, onPrevPage }) {
-  console.log(data);
   const articles = data?.dokumentlista.dokument;
   const dokuments = data?.dokumentlista;
 
   //   const articles = null;
   //   const dokuments = null;
-  const { searchString, setSearchString, searchOptions, setSearchOptions } =
-    React.useContext(GlobalStateContext);
+  const {
+    searchString,
+    setSearchString,
+    searchOptions,
+    setSearchOptions,
+    currentSelectedArticle,
+    setCurrentSelectedArticle,
+  } = React.useContext(GlobalStateContext);
   //   console.log(articles);
 
   const onClickArticleClick = (e) => {
@@ -27,6 +32,9 @@ export default function Articles({ data, nextPage, onPrevPage }) {
     });
 
     e.currentTarget.style.backgroundColor = "rgb(245,245,245)";
+
+    setCurrentSelectedArticle(e.currentTarget.id);
+    // console.log(e.currentTarget.id);
   };
 
   return (
@@ -80,6 +88,7 @@ export default function Articles({ data, nextPage, onPrevPage }) {
                 key={key}
                 article={article}
                 onClick={onClickArticleClick}
+                id={article.dok_id}
               />
             );
           })

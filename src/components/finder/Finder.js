@@ -4,6 +4,7 @@ import Articles from "../articles/Articles";
 import SearchBar from "../searchBar/SearchBar";
 import { Container } from "./Styles";
 import * as API from "../../fetch.js";
+import ArticleView from "../articleView/ArticleView";
 export default function Finder() {
   const { searchString, setSearchString, searchOptions, setSearchOptions } =
     React.useContext(GlobalStateContext);
@@ -73,7 +74,9 @@ export default function Finder() {
             onPrevPage={onPrevPage}
           ></Articles>
         </Container>
-        <Container type="right"></Container>
+        <Container type="right">
+          <ArticleView></ArticleView>
+        </Container>
       </Container>
     </Container>
   );

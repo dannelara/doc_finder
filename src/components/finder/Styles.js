@@ -22,7 +22,7 @@ export const Container = styled.div`
       display: "flex",
       justifyContent: "center",
       alignItems: "center",
-      flexWrap: "wrap",
+
       //   backgroundColor: "red",
       //   minHeight: "100%",
       //   width: "100%",
@@ -50,7 +50,8 @@ export const Container = styled.div`
     props.type === "right" && {
       //   position: "relative",
       height: "100%",
-      flexGrow: "1",
+      width: "40%",
+      maxWidth: "40%",
 
       //   backgroundColor: "red",
       //   minHeight: "100%",

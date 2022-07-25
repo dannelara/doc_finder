@@ -3,7 +3,7 @@ import { P } from "../../utils";
 import { Container, StyledA } from "./Styles";
 import sanitizeString from "../../helpers/sanitizeString";
 import { GlobalStateContext } from "../../globals/GlobalState";
-export default function Article({ article, onClick }) {
+export default function Article({ article, onClick, id }) {
   const [bg, setBG] = useState("#ffff");
   return (
     <Container
@@ -12,6 +12,8 @@ export default function Article({ article, onClick }) {
       //   style={{
       //     backgroundColor: bg,
       //   }}
+
+      id={id}
     >
       <Container type="top">
         <P type="title">

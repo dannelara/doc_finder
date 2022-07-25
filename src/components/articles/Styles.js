@@ -36,7 +36,7 @@ export const Container = styled.div`
 
   ${(props) =>
     props.type === "content-flex" && {
-      width: "80%",
+      width: "75%",
       height: "90%",
 
       display: "flex",
