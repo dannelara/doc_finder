@@ -10,6 +10,14 @@ const StyledP = styled.p`
     }}
 
   ${(props) =>
+    props.type === "article-top" && {
+      fontSize: "11px",
+      color: "#ffff",
+      fontWeight: "1000",
+      textAlign: "center",
+    }}
+
+  ${(props) =>
     props.type === "header" && {
       color: "white",
     }}
@@ -29,6 +37,7 @@ const StyledP = styled.p`
       fontWeight: "1000",
       textAlign: "center",
     }}
+
     ${(props) =>
     props.type === "desc" && {
       fontSize: "12px",

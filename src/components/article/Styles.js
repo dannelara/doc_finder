@@ -25,7 +25,7 @@ export const Container = styled.div`
 
   ${(props) =>
     props.type === "big" && {
-      height: "150px",
+      height: "200px",
       width: "100%",
       display: "flex",
       alignContent: "center",
@@ -56,7 +56,7 @@ export const Container = styled.div`
     ${(props) =>
     props.type === "desc" && {
       width: "90%",
-      height: "5em",
+      height: "3em",
       display: "flex",
       textAlign: "center",
       justifyContent: "center",
@@ -110,4 +110,11 @@ export const StyledA = styled.a`
     text-decoration: none;
     display: inline-block;
   }
+`;
+
+export const StyledP = styled.p`
+  font-size: 12px;
+  color: grey;
+  font-weight: 1000;
+  text-align: center;
 `;

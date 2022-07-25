@@ -35,7 +35,7 @@ export const Container = styled.div`
 
   ${(props) =>
     props.type === "content-flex" && {
-      width: "95%",
+      width: "97%",
       height: "95%",
       backgroundColor: "#ffff",
       border: `2px solid ${props.theme.content.border}`,
@@ -46,13 +46,21 @@ export const Container = styled.div`
 
      ${(props) =>
     props.type === "article-view" && {
-      width: "100%",
+      width: "96%",
       height: "100%",
       overflow: "auto",
-      padding: "0em 2em",
-
+      padding: "0em 0.1em",
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+      flexWrap: "wrap",
       "&>*:first-child": {
         margin: "0 !important",
+        width: "100% !important",
+        "&>*": {
+          width: "100% !important",
+          margin: "0 !important",
+        },
       },
     }}
 `;

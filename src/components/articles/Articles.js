@@ -25,78 +25,91 @@ export default function Articles({ data, nextPage, onPrevPage }) {
   const onClickArticleClick = (e) => {
     const articlesContainter = document.querySelector("#articles");
 
+    const currentArticleInView = document.querySelector("#article-view");
+
     const childrens = articlesContainter.children;
 
     Array.from(childrens).forEach((child) => {
-      child.style.backgroundColor = "#ffff";
+      child.style.removeProperty("background-color");
     });
 
     e.currentTarget.style.backgroundColor = "rgb(245,245,245)";
 
     setCurrentSelectedArticle(e.currentTarget.id);
-    // console.log(e.currentTarget.id);
+
+    currentArticleInView.scrollTop = 0;
   };
 
   return (
     <Container type="big">
-      <TopContainer type="top">
-        {dokuments ? (
-          <>
-            {" "}
-            <TopContainer type="sub-big">
-              <TopContainer type="sub">
-                <P type="light">
-                  {dokuments["@traff_fran"]}- {dokuments["@traff_till"]} av{" "}
-                </P>
-                <P type="default">
-                  {dokuments["@traffar"]} träffar för "{searchString}"
-                </P>
-              </TopContainer>
-            </TopContainer>
-            <TopContainer type="sub-big">
-              <TopContainer type="sub">
-                <P type="default">Senaste först</P>
-              </TopContainer>
-              <TopContainer type="sub">
-                {parseInt(dokuments["@sida"]) > 1 && (
-                  <TopContainer type="sub-small">
-                    <Button btnType="next_page" onClick={onPrevPage}>
-                      <AiOutlineArrowLeft></AiOutlineArrowLeft>
-                      <P type="default">Förra sida </P>
-                    </Button>
-                  </TopContainer>
-                )}
-                <TopContainer type="sub-small">
-                  <Button btnType="next_page" onClick={nextPage}>
-                    <P type="default">Nästa sida </P>
-                    <AiOutlineArrowRight></AiOutlineArrowRight>
-                  </Button>
+      <Container type="content-big">
+        <TopContainer type="top">
+          {dokuments ? (
+            <>
+              {" "}
+              <TopContainer type="sub-big">
+                <TopContainer type="sub">
+                  <P type="light">
+                    {dokuments["@traff_fran"]}- {dokuments["@traff_till"]} av{" "}
+                  </P>
+                  <P type="article-top">
+                    {dokuments["@traffar"]} träffar för "{searchString}"
+                  </P>
                 </TopContainer>
               </TopContainer>
-            </TopContainer>
-          </>
-        ) : (
-          <P type="light">TBD</P>
-        )}
-      </TopContainer>
-      <Filter></Filter>
-      <Container type="content-flex" id="articles">
-        {articles ? (
-          articles.map((article, key) => {
-            return (
-              <Article
-                key={key}
-                article={article}
-                onClick={onClickArticleClick}
-                id={article.dok_id}
-              />
-            );
-          })
-        ) : (
-          <>
+              <TopContainer type="sub-big">
+                <TopContainer type="sub">
+                  <P type="article-top">Senaste först</P>
+                </TopContainer>
+                <TopContainer type="sub">
+                  {parseInt(dokuments["@sida"]) > 1 && (
+                    <TopContainer type="sub-small">
+                      <Button btnType="next_page" onClick={onPrevPage}>
+                        <AiOutlineArrowLeft
+                          style={{
+                            color: "#ffff",
+                          }}
+                        ></AiOutlineArrowLeft>
+                        <P type="article-top">Förra sida </P>
+                      </Button>
+                    </TopContainer>
+                  )}
+                  <TopContainer type="sub-small">
+                    <Button btnType="next_page" onClick={nextPage}>
+                      <P type="article-top">Nästa sida </P>
+                      <AiOutlineArrowRight
+                        style={{
+                          color: "#ffff",
+                        }}
+                      ></AiOutlineArrowRight>
+                    </Button>
+                  </TopContainer>
+                </TopContainer>
+              </TopContainer>
+            </>
+          ) : (
             <P type="light">TBD</P>
-          </>
-        )}
+          )}
+        </TopContainer>
+        <Filter></Filter>
+        <Container type="content-flex" id="articles">
+          {articles ? (
+            articles.map((article, key) => {
+              return (
+                <Article
+                  key={key}
+                  article={article}
+                  onClick={onClickArticleClick}
+                  id={article.dok_id}
+                />
+              );
+            })
+          ) : (
+            <>
+              <P type="light">TBD</P>
+            </>
+          )}
+        </Container>
       </Container>
     </Container>
   );

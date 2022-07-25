@@ -1,9 +1,29 @@
-export default (str) => {
+export default (str, searchString) => {
   if (str === null || str === "") return false;
   else str = str.toString();
 
-  // Regular expression to identify HTML tags in
-  // the input string. Replacing the identified
-  // HTML tag with a null string.
-  return str.replace(/(<([^>]+)>)/gi, "").toLowerCase();
+  if (!searchString) {
+    return str.replace(/(<([^>]+)>)/gi, "").toLowerCase();
+  } else {
+    let result = "";
+
+    const keyWords = searchString.split(" ");
+    const replacedString = str.replace(/(<([^>]+)>)/gi, "").toLowerCase();
+
+    const splitted = replacedString.split(/,| |-/);
+
+    for (const keyWord of keyWords) {
+      const regex = new RegExp(`^${keyWord.toLowerCase()}`);
+      for (const word of splitted) {
+        if (word.match(regex)) {
+          result += `<span class="träff-markering"> ${word} </span>`;
+        } else {
+          result += word;
+        }
+        result += " ";
+      }
+    }
+
+    return result;
+  }
 };

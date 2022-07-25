@@ -23,6 +23,8 @@ export default function Finder() {
 
   const onNextPage = async () => {
     await getArticles(data.dokumentlista["@nasta_sida"]);
+
+    document.querySelector("#articles").scrollTop = 0;
     // setPage(page + 1);
     // console.log("current page", page);
   };
@@ -32,6 +34,7 @@ export default function Finder() {
       // setPage(page - 1);
       // console.log("prev page", page);
       await getArticles("", parseInt(data.dokumentlista["@sida"]) - 1);
+      document.querySelector("#articles").scrollTop = 0;
     }
   };
 
@@ -52,6 +55,7 @@ export default function Finder() {
       // console.log("Nästa sida", page);
       setData(data);
       setLoading(false);
+      document.querySelector("#articles").scrollTop = 0;
     } catch (error) {
       console.error(error);
     }

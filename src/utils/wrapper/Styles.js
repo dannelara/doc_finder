@@ -3,7 +3,7 @@ import styled from "styled-components";
 const StyledWrapper = styled.div`
   ${(props) =>
     props.type === "content" && {
-      height: "100%",
+      height: "91.3%",
       width: "100%",
       backgroundColor: props.theme.colors.main,
       display: "flex",

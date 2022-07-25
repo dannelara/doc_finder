@@ -1,10 +1,23 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { P } from "../../utils";
+import { StyledP } from "./Styles";
 import { Container, StyledA } from "./Styles";
 import sanitizeString from "../../helpers/sanitizeString";
 import { GlobalStateContext } from "../../globals/GlobalState";
 export default function Article({ article, onClick, id }) {
+  const { searchString } = React.useContext(GlobalStateContext);
+
   const [bg, setBG] = useState("#ffff");
+
+  useEffect(() => {
+    Array.from(document.querySelectorAll(".träff-markering")).forEach(
+      (element) => {
+        element.style.fontSize = "12px";
+        element.style.backgroundColor = "yellow";
+      }
+    );
+  }, [article]);
+
   return (
     <Container
       type="big"
@@ -22,9 +35,13 @@ export default function Article({ article, onClick, id }) {
           - {article.publicerad.substring(0, 10)}
         </P>
       </Container>
-      {/* <Container type="desc">
-        <P type="desc">{sanitizeString(article.summary)}</P>
-      </Container> */}
+      <Container type="desc">
+        <StyledP
+          dangerouslySetInnerHTML={{
+            __html: sanitizeString(article.summary, searchString),
+          }}
+        ></StyledP>
+      </Container>
 
       <Container type="bottom">
         <Container type="bottom-small">
@@ -48,7 +65,7 @@ export default function Article({ article, onClick, id }) {
               <P type="default">{article.organ}</P>
             </Container>
 
-            {article.undertitel && (
+            {article.undertitel && article.dokumentnamn !== "Omröstning" && (
               <Container type="bottom-sub">
                 <P type="light">Av: </P>
                 <P type="default">{article.undertitel}</P>

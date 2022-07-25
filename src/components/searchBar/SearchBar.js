@@ -34,7 +34,7 @@ export default function SearchBar({ getArticles }) {
       try {
         // Validate string.
         const checkedString = checkString(userInput);
-        console.log(startDate, endDate);
+
         setSearchString(checkedString);
         setSearchOptions({
           start: startDate,

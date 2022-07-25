@@ -15,6 +15,7 @@ const Theme = {
     sub: "rgb(176,196,222)",
     default: "rgb(255,255,255)",
     input_border: "rgb(192,192,192)",
+    dark: "#191836",
   },
 
   colors: {

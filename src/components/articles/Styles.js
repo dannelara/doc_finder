@@ -23,21 +23,33 @@ export const Container = styled.div`
     border: 6px solid transparent;
     background-clip: content-box;
   }
+
   ${(props) =>
     props.type === "big" && {
-      position: "relative",
-      height: "100%",
       width: "100%",
+      height: "100%",
       display: "flex",
-      alignItems: "center",
       justifyContent: "center",
+      alignItems: "center",
+      borderTop: `2px solid ${props.theme.content.border}`,
+    }}
+  ${(props) =>
+    props.type === "content-big" && {
+      position: "relative",
+      width: "97%",
+      height: "95%",
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
       flexWrap: "wrap",
+      backgroundColor: props.theme.colors.content_light,
+      border: `2px solid ${props.theme.content.border}`,
     }}
 
   ${(props) =>
     props.type === "content-flex" && {
       width: "75%",
-      height: "90%",
+      height: "89%",
 
       display: "flex",
       alignItems: "center",
@@ -50,12 +62,11 @@ export const Container = styled.div`
 export const TopContainer = styled.div`
   ${(props) =>
     props.type === "top" && {
-      top: "0",
       width: "100%",
-      height: "10%",
+      height: "11%",
       //   boxShadow: props.theme.content.boxShadow,
-
-      border: `2px solid ${props.theme.content.border}`,
+      backgroundColor: props.theme.content.dark,
+      borderBottom: `2px solid ${props.theme.content.border}`,
       borderRight: "none",
       display: "flex",
       alignItems: "center",
@@ -70,7 +81,7 @@ export const TopContainer = styled.div`
       display: "flex",
       alignItems: "center",
       justifyContent: "center",
-      borderBottom: `1px solid ${props.theme.content.border}`,
+      borderBottom: `1px solid #ffff`,
 
       "&>*:last-child": {
         borderRight: "none",
@@ -86,7 +97,7 @@ export const TopContainer = styled.div`
       justifyContent: "center",
       height: "80%",
       gap: "5px",
-      borderRight: `1px solid ${props.theme.content.border}`,
+      borderRight: `1px solid #ffff`,
       "&>*:last-child": {
         borderBottom: "none",
       },

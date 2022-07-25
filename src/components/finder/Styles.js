@@ -35,9 +35,10 @@ export const Container = styled.div`
     props.type === "left" && {
       //   position: "relative",
       height: "100%",
-      width: "50%",
+      width: "60%",
       maxWidth: "60%",
-      backgroundColor: props.theme.colors.content_light,
+      maxHeight: "100%",
+      // backgroundColor: props.theme.colors.content_light,
       borderRight: `2px solid ${props.theme.content.border}`,
       //   backgroundColor: "red",
       //   minHeight: "100%",
@@ -50,9 +51,9 @@ export const Container = styled.div`
     props.type === "right" && {
       //   position: "relative",
       height: "100%",
-      width: "50%",
+      width: "40%",
       maxWidth: "50%",
-
+      maxHeight: "100%",
       //   backgroundColor: "red",
       //   minHeight: "100%",
       //   width: "100%",

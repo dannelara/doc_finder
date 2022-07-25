@@ -14,7 +14,6 @@ export default function ArticleView() {
 
     // const parsed = new window.DOMParser().parseFromString(text, "text");
 
-    console.log(text);
     setARticleXML(text);
 
     // console.log(articleXML);
@@ -24,9 +23,18 @@ export default function ArticleView() {
     //     _html: `${articleXML.body.querySelector(".body")}`,
     //   });
   };
+
+  // const fixArticleHTML = () => {
+  //   const divs = Array.from(document.body.querySelectorAll('div[id^="page_"]'));
+  //   divs.forEach((div) => {
+  //     div.style.width = "100%";
+  //   });
+  // };
+
   useEffect(() => {
     if (currentSelectedArticle) {
       fetchFullArticle(currentSelectedArticle);
+      // fixArticleHTML();
     }
   }, [currentSelectedArticle]);
 
@@ -35,6 +43,7 @@ export default function ArticleView() {
       <Container type="content-flex">
         {articleXML ? (
           <Container
+            id="article-view"
             type="article-view"
             dangerouslySetInnerHTML={{ __html: `${articleXML}` }}
           >
