@@ -37,3 +37,20 @@ export async function fetchArticles(nextUrl, keyword, searchOptions, page) {
     console.error(error);
   }
 }
+
+export async function fetchFullArticle(id) {
+  const url = `https://data.riksdagen.se/dokumentstatus/${id}.html`;
+
+  const response = await fetch(url);
+
+  const answer = await response.text();
+
+  const parsed = new window.DOMParser().parseFromString(answer, "text/html");
+  return parsed;
+}
+
+export async function fetchArticlePDF(url) {
+  const response = await fetch(url);
+
+  console.log(response);
+}
