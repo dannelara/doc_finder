@@ -39,14 +39,14 @@ export async function fetchArticles(nextUrl, keyword, searchOptions, page) {
 }
 
 export async function fetchFullArticle(id) {
-  const url = `https://data.riksdagen.se/dokumentstatus/${id}.html`;
+  const url = `//data.riksdagen.se/dokument/${id}.html`;
 
   const response = await fetch(url);
 
   const answer = await response.text();
 
-  const parsed = new window.DOMParser().parseFromString(answer, "text/html");
-  return parsed;
+  // const parsed = new window.DOMParser().parseFromString(answer, "text/html");
+  return answer;
 }
 
 export async function fetchArticlePDF(url) {

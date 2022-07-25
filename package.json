@@ -1,4 +1,4 @@
-{
+{"proxy": "https://cat-fact.herokuapp.com/",
   "name": "frontendd_v2",
   "version": "0.1.0",
   "private": true,
@@ -28,6 +28,7 @@
       "react-app/jest"
     ]
   },
+  
   "browserslist": {
     "production": [
       ">0.2%",

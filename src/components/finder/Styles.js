@@ -35,7 +35,7 @@ export const Container = styled.div`
     props.type === "left" && {
       //   position: "relative",
       height: "100%",
-      width: "60%",
+      width: "50%",
       maxWidth: "60%",
       backgroundColor: props.theme.colors.content_light,
       borderRight: `2px solid ${props.theme.content.border}`,
@@ -50,8 +50,8 @@ export const Container = styled.div`
     props.type === "right" && {
       //   position: "relative",
       height: "100%",
-      width: "40%",
-      maxWidth: "40%",
+      width: "50%",
+      maxWidth: "50%",
 
       //   backgroundColor: "red",
       //   minHeight: "100%",

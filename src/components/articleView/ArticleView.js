@@ -10,23 +10,14 @@ export default function ArticleView() {
   const [articleXML, setARticleXML] = useState(null);
 
   const fetchFullArticle = async (id) => {
-    const articleXML = await API.fetchFullArticle(id);
+    const text = await API.fetchFullArticle(id);
 
-    const body = articleXML.body.querySelector(".body");
-    const pdfURL = body.querySelector(
-      'a[href^="http://data.riksdagen.se/fil/"]'
-    );
+    // const parsed = new window.DOMParser().parseFromString(text, "text");
 
-    API.fetchArticlePDF(pdfURL);
-    console.log(pdfURL);
-    // const pdfurls = Array.from(
-    //   parsed.window.document.querySelectorAll('a[href^="https://"]')
-    // );
+    console.log(text);
+    setARticleXML(text);
 
-    // console.log(pdfurls);
-    // console.log;
-    // setARticleXML(articleXML);
-
+    // console.log(articleXML);
     // document
     //   .querySelector("#article-full")
     //   .setAttribute("dangerouslySetInnerHTML", {
