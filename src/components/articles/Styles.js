@@ -1,29 +1,6 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  ::-webkit-scrollbar {
-    width: 15px;
-  }
-
-  ::-webkit-scrollbar-track {
-    background-color: transparent;
-  }
-
-  ::-webkit-scrollbar-thumb {
-    background-color: #d6dee1;
-    border-radius: 20px;
-  }
-
-  ::-webkit-scrollbar-thumb {
-    background-color: #d6dee1;
-  }
-  ::-webkit-scrollbar-thumb {
-    background-color: #d6dee1;
-    border-radius: 20px;
-    border: 6px solid transparent;
-    background-clip: content-box;
-  }
-
   ${(props) =>
     props.type === "big" && {
       width: "100%",
@@ -46,10 +23,21 @@ export const Container = styled.div`
       border: `2px solid ${props.theme.content.border}`,
     }}
 
+    ${(props) =>
+    props.type === "bottom-big" && {
+      width: "100%",
+      height: "89%",
+      maxHeight: "89%",
+      maxWidth: "100%",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+    }}
+
   ${(props) =>
     props.type === "content-flex" && {
       width: "75%",
-      height: "89%",
+      height: "100%",
 
       display: "flex",
       alignItems: "center",

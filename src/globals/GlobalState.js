@@ -11,6 +11,7 @@ const GlobalState = ({ children }) => {
   const [searchString, setSearchString] = useState(currentStoredSearchString);
   const [searchOptions, setSearchOptions] = useState({});
   const [currentSelectedArticle, setCurrentSelectedArticle] = useState(null);
+  const [allArticles, setAllArticles] = useState(null);
 
   const state = {
     searchString,
@@ -19,6 +20,8 @@ const GlobalState = ({ children }) => {
     setSearchOptions,
     currentSelectedArticle,
     setCurrentSelectedArticle,
+    allArticles,
+    setAllArticles,
   };
 
   return (
