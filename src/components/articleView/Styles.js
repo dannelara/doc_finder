@@ -1,28 +1,6 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  ::-webkit-scrollbar {
-    width: 15px;
-  }
-
-  ::-webkit-scrollbar-track {
-    background-color: transparent;
-  }
-
-  ::-webkit-scrollbar-thumb {
-    background-color: #d6dee1;
-    border-radius: 20px;
-  }
-
-  ::-webkit-scrollbar-thumb {
-    background-color: #d6dee1;
-  }
-  ::-webkit-scrollbar-thumb {
-    background-color: #d6dee1;
-    border-radius: 20px;
-    border: 6px solid transparent;
-    background-clip: content-box;
-  }
   ${(props) =>
     props.type === "big" && {
       width: "100%",

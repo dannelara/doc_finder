@@ -30,6 +30,17 @@ const StyledButton = styled.button`
     }}
 
   ${(props) =>
+    props.btnType === "filter" && {
+      background: "transparent",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      flexWrap: "wrap",
+      gap: "5px",
+    }}
+
+
+  ${(props) =>
     props.btnType === "search" && {
       color: "white",
       border: "none",
@@ -43,24 +54,6 @@ const StyledButton = styled.button`
 
       "&:active": {
         color: "red",
-      },
-    }}
-    
-  ${(props) =>
-    props.btnType === "filter" && {
-      height: "25px",
-      padding: "0",
-      width: "250px",
-      padding: "0.1rem",
-
-      fontSize: "15px",
-      fontWeight: "600",
-      background: "white",
-      backgroundColor: "rgb(119,136,153)",
-      boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px",
-      "&:active": {
-        color: "black",
-        backgroundColor: "grey",
       },
     }}
 `;

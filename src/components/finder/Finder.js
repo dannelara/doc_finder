@@ -5,14 +5,22 @@ import SearchBar from "../searchBar/SearchBar";
 import { Container } from "./Styles";
 import * as API from "../../fetch.js";
 import ArticleView from "../articleView/ArticleView";
+
 export default function Finder() {
-  const { searchString, setSearchString, searchOptions, setSearchOptions } =
-    React.useContext(GlobalStateContext);
+  const {
+    searchString,
+    setSearchString,
+    searchOptions,
+    setSearchOptions,
+    allArticles,
+    setAllArticles,
+  } = React.useContext(GlobalStateContext);
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState(null);
+
   const [mode, setMode] = useState(0);
   // const [page, setPage] = useState(1);
-
+  // console.log(data);
   const reset = () => {
     setSearchString("");
     setMode(0);
@@ -38,6 +46,21 @@ export default function Finder() {
     }
   };
 
+  // const fetchAllArticles = async (data) => {
+  //   let tempData = await data;
+  //   console.log(tempData);
+  //   // while (tempData.dokumentlista["@nasta_sida"]) {
+  //   //   const data = await API.fetchArticles(
+  //   //     tempData.dokumentlista["@nasta_sida"],
+  //   //     searchString,
+  //   //     searchOptions
+  //   //   );
+  //   //   console.log("here");
+  //   //   console.log(tempData.dokumentlista["@nasta_sida"]);
+  //   //   tempData = data;
+  //   // }
+  // };
+
   const getArticles = async (url, page) => {
     try {
       setLoading(true);
@@ -62,8 +85,13 @@ export default function Finder() {
   };
 
   useEffect(() => {
+    // if ("serviceWorker" in navigator) {
+    //   navigator.serviceWorker.register("'../../workers/serviceWorker.js'");
+    // }
+
     if (searchString) {
       getArticles();
+      // fetchAllArticles();
     }
   }, [searchString, searchOptions.start, searchOptions.end]);
 

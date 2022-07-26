@@ -91,24 +91,26 @@ export default function Articles({ data, nextPage, onPrevPage }) {
             <P type="light">TBD</P>
           )}
         </TopContainer>
-        <Filter></Filter>
-        <Container type="content-flex" id="articles">
-          {articles ? (
-            articles.map((article, key) => {
-              return (
-                <Article
-                  key={key}
-                  article={article}
-                  onClick={onClickArticleClick}
-                  id={article.dok_id}
-                />
-              );
-            })
-          ) : (
-            <>
-              <P type="light">TBD</P>
-            </>
-          )}
+        <Container type="bottom-big">
+          <Filter></Filter>
+          <Container type="content-flex" id="articles">
+            {articles ? (
+              articles.map((article, key) => {
+                return (
+                  <Article
+                    key={key}
+                    article={article}
+                    onClick={onClickArticleClick}
+                    id={article.dok_id}
+                  />
+                );
+              })
+            ) : (
+              <>
+                <P type="light">TBD</P>
+              </>
+            )}
+          </Container>
         </Container>
       </Container>
     </Container>

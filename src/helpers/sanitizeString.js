@@ -10,7 +10,7 @@ export default (str, searchString) => {
     const keyWords = searchString.split(" ");
     const replacedString = str.replace(/(<([^>]+)>)/gi, "").toLowerCase();
 
-    const splitted = replacedString.split(/,| |-/);
+    const splitted = replacedString.split(" ");
 
     for (const keyWord of keyWords) {
       const regex = new RegExp(`^${keyWord.toLowerCase()}`);

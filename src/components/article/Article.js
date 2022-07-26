@@ -9,14 +9,14 @@ export default function Article({ article, onClick, id }) {
 
   const [bg, setBG] = useState("#ffff");
 
-  useEffect(() => {
-    Array.from(document.querySelectorAll(".träff-markering")).forEach(
-      (element) => {
-        element.style.fontSize = "12px";
-        element.style.backgroundColor = "yellow";
-      }
-    );
-  }, [article]);
+  // useEffect(() => {
+  //   Array.from(document.querySelectorAll(".träff-markering")).forEach(
+  //     (element) => {
+  //       element.style.fontSize = "12px";
+  //       element.style.backgroundColor = "yellow";
+  //     }
+  //   );
+  // }, [article]);
 
   return (
     <Container
