@@ -12,6 +12,7 @@ export const Container = styled.div`
   ${(props) =>
     props.type === "content" && {
       height: "auto",
+      maxHeight: "100%",
       width: "100%",
       maxWidth: "100%",
       display: "flex",
@@ -19,6 +20,10 @@ export const Container = styled.div`
       alignItems: "start",
       flexWrap: "wrap",
       gap: "15px",
+      overflow: "auto",
+      "&>*:last-child": {
+        borderBottom: "none",
+      },
     }}
 
     ${(props) =>
@@ -43,7 +48,7 @@ ${(props) =>
 
     ${(props) =>
     props.type === "sub-small" && {
-      width: "95%",
+      width: "100%",
       height: "auto",
       maxHeight: "150px",
       display: "flex",
@@ -54,6 +59,18 @@ ${(props) =>
       overflow: "auto",
     }}
 
+    ${(props) =>
+    props.type === "sub-small-button" && {
+      width: "80%",
+      height: "auto",
+      maxHeight: "250px",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      flexWrap: "wrap",
+      gap: "15px",
+      overflow: "auto",
+    }}
     ${(props) =>
     props.type === "sub" && {
       width: "100%",
@@ -72,15 +89,4 @@ ${(props) =>
     justifycontent: start;
     border-bottom: 1px solid ${(props) => props.theme.content.border};
   }
-`;
-
-export const StyledSpan = styled.span`
-  font-size: 11px;
-  color: black;
-  font-weight: 1000;
-  text-align: center;
-`;
-
-export const StyledInput = styled.input`
-  cursor: pointer;
 `;

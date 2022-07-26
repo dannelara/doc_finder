@@ -37,7 +37,9 @@ export default function Articles({ data, nextPage, onPrevPage }) {
 
     setCurrentSelectedArticle(e.currentTarget.id);
 
-    currentArticleInView.scrollTop = 0;
+    if (currentArticleInView.scrollTop > 0) {
+      currentArticleInView.scrollTop = 0;
+    }
   };
 
   return (

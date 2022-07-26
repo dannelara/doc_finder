@@ -21,6 +21,8 @@ export default function Finder() {
   const [mode, setMode] = useState(0);
   // const [page, setPage] = useState(1);
   // console.log(data);
+
+  useEffect(() => {}, [searchOptions]);
   const reset = () => {
     setSearchString("");
     setMode(0);
@@ -93,7 +95,13 @@ export default function Finder() {
       getArticles();
       // fetchAllArticles();
     }
-  }, [searchString, searchOptions.start, searchOptions.end]);
+  }, [
+    searchString,
+    searchOptions.start,
+    searchOptions.end,
+    searchOptions.doktyp,
+    searchOptions.sort,
+  ]);
 
   return (
     <Container type="big">

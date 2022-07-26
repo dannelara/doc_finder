@@ -9,7 +9,12 @@ const GlobalState = ({ children }) => {
 
   // FIX THIS! Search string must be saved to the local storage!
   const [searchString, setSearchString] = useState(currentStoredSearchString);
-  const [searchOptions, setSearchOptions] = useState({});
+  const [searchOptions, setSearchOptions] = useState({
+    start: "",
+    end: "",
+    sort: "",
+    doktyp: "",
+  });
   const [currentSelectedArticle, setCurrentSelectedArticle] = useState(null);
   const [allArticles, setAllArticles] = useState(null);
 

@@ -14,7 +14,6 @@ export async function fetchNames() {
 }
 
 export async function fetchArticles(nextUrl, keyword, searchOptions, page) {
-  // console.log(page);
   const currentPage = page ? page : 1;
 
   keyword = keyword.replace(" ", "+");
@@ -22,7 +21,7 @@ export async function fetchArticles(nextUrl, keyword, searchOptions, page) {
   let url;
 
   if (!nextUrl) {
-    url = `https://data.riksdagen.se/dokumentlista/?sok=${keyword}&doktyp=&rm=&from=${searchOptions.start}&tom=${searchOptions.end}&ts=&bet=&tempbet=&nr=&org=&iid=&avd=&webbtv=&talare=&exakt=&planering=&facets=&sort=datum&sortorder=desc&rapport=&utformat=json&a=s&p=${page}`;
+    url = `https://data.riksdagen.se/dokumentlista/?sok=${keyword}&doktyp=${searchOptions.doktyp}&rm=&from=${searchOptions.start}&tom=${searchOptions.end}&ts=&bet=&tempbet=&nr=&org=&iid=&avd=&webbtv=&talare=&exakt=&planering=&facets=&sort=${searchOptions.sort}&sortorder=desc&rapport=&utformat=json&a=s&p=${page}`;
   } else {
     url = nextUrl;
   }

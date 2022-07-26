@@ -36,13 +36,11 @@ export default function SearchBar({ getArticles }) {
         const checkedString = checkString(userInput);
 
         setSearchString(checkedString);
-        setSearchOptions({
-          start: startDate,
-          end: endDate,
-        });
-
-        // onClick();
-        // setMode(1);
+        setSearchOptions((old) => ({
+          ...old,
+          ["start"]: startDate,
+          ["end"]: endDate,
+        }));
       } catch (error) {
         console.error(error);
         setError_msg(error.message);
