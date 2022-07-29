@@ -34,6 +34,7 @@ export const Container = styled.div`
       justifyContent: "center",
       alignItems: "center",
       flexWrap: "wrap",
+      padding: "0.2em 0em",
       borderBottom: `1px solid ${props.theme.content.border}`,
     }}
 ${(props) =>

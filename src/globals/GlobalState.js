@@ -14,7 +14,11 @@ const GlobalState = ({ children }) => {
     end: "",
     sort: "",
     doktyp: "",
+    organ: "",
   });
+
+  const [filter_options, setFilter_options] = useState(null);
+
   const [currentSelectedArticle, setCurrentSelectedArticle] = useState(null);
   const [allArticles, setAllArticles] = useState(null);
 
@@ -27,6 +31,8 @@ const GlobalState = ({ children }) => {
     setCurrentSelectedArticle,
     allArticles,
     setAllArticles,
+    filter_options,
+    setFilter_options,
   };
 
   return (

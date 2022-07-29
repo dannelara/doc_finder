@@ -282,4 +282,31 @@ const filter_doc_types_data = [
   },
 ];
 
-export { filter_sort_data, filter_doc_types_data };
+const filter_organ_data = [
+  { AU: "Arbetsmarknadsutskottet" },
+  { CU: "Civilutskottet" },
+  { FiU: "Finansutskottet" },
+  { FöU: "Försvarsutskottet" },
+  { JuU: "Justitieutskottet" },
+  { KU: "Konstitutionsutskottet" },
+  { KrU: "Kulturutskottet" },
+  { MJU: "Miljö-ochjordbruksutskottet" },
+  { NU: "Näringsutskottet" },
+  { SkU: "Skatteutskottet" },
+  { SfU: "Socialförsäkringsutskottet" },
+  { SoU: "Socialutskottet" },
+  { TU: "Trafikutskottet" },
+  { UbU: "Utbildningsutskottet" },
+  { UU: "Utrikesutskottet" },
+  { JuSoU: "JuSoU" },
+  { KUU: "KUU" },
+  { UFöU: "UFöU" },
+  { UMJU: "UMJU" },
+  { USoU: "USoU" },
+  { JoU: "Jordbruksutskottet-1997/98" },
+  { BoU: "Bostadsutskottet-2005/06" },
+  { LU: "Lagutskottet-2005/06" },
+  { EUN: "EU-nämnden" },
+];
+
+export { filter_sort_data, filter_doc_types_data, filter_organ_data };

@@ -33,26 +33,36 @@ export default function FilterSection({ data, id }) {
       });
     } else {
       //   setFilterValue("");
+      setSearchOptions((prevState) => ({
+        ...prevState,
+        [key]: "",
+      }));
     }
   };
 
+  // useEffect(() => {
+  //   console.log(data);
+  // }, [data]);
   return (
     <Container type="container" id={id}>
-      {data.map((item, key) => {
-        return (
-          <Container type="sub" key={key}>
-            <StyledLabel htmlFor={`${Object.keys(item)}`}>
-              <StyledInput
-                type="checkbox"
-                id={Object.keys(item)}
-                name={`${Object.keys(item)}`}
-                onClick={onClick}
-              />
-              {Object.values(item)}
-            </StyledLabel>
-          </Container>
-        );
-      })}
+      {data &&
+        data.map((item, key) => {
+          if (item[Object.keys(item)].length > 0) {
+            return (
+              <Container type="sub" key={key}>
+                <StyledLabel htmlFor={`${Object.keys(item)}`}>
+                  <StyledInput
+                    type="checkbox"
+                    id={Object.keys(item)}
+                    name={`${Object.keys(item)}`}
+                    onClick={onClick}
+                  />
+                  {Object.values(item)}
+                </StyledLabel>
+              </Container>
+            );
+          }
+        })}
     </Container>
   );
 }

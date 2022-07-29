@@ -15,26 +15,17 @@ export default function ArticleView() {
     // const parsed = new window.DOMParser().parseFromString(text, "text");
 
     setARticleXML(text);
-
-    // console.log(articleXML);
-    // document
-    //   .querySelector("#article-full")
-    //   .setAttribute("dangerouslySetInnerHTML", {
-    //     _html: `${articleXML.body.querySelector(".body")}`,
-    //   });
   };
-
-  // const fixArticleHTML = () => {
-  //   const divs = Array.from(document.body.querySelectorAll('div[id^="page_"]'));
-  //   divs.forEach((div) => {
-  //     div.style.width = "100%";
-  //   });
-  // };
 
   useEffect(() => {
     if (currentSelectedArticle) {
       fetchFullArticle(currentSelectedArticle);
       // fixArticleHTML();
+      const currentArticleInView = document.querySelector("#article-view");
+
+      if (currentArticleInView?.scrollTop > 0) {
+        currentArticleInView.scrollTop = 0;
+      }
     }
   }, [currentSelectedArticle]);
 

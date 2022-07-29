@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Filter from "../filter/Filter";
 import { Container, TopContainer } from "./Styles";
 import Article from "../article/Article";
@@ -10,8 +10,11 @@ export default function Articles({ data, nextPage, onPrevPage }) {
   const articles = data?.dokumentlista.dokument;
   const dokuments = data?.dokumentlista;
 
+  console.log(data);
   //   const articles = null;
   //   const dokuments = null;
+
+  useEffect(() => {}, []);
   const {
     searchString,
     setSearchString,
@@ -20,12 +23,9 @@ export default function Articles({ data, nextPage, onPrevPage }) {
     currentSelectedArticle,
     setCurrentSelectedArticle,
   } = React.useContext(GlobalStateContext);
-  //   console.log(articles);
 
   const onClickArticleClick = (e) => {
     const articlesContainter = document.querySelector("#articles");
-
-    const currentArticleInView = document.querySelector("#article-view");
 
     const childrens = articlesContainter.children;
 
@@ -36,10 +36,6 @@ export default function Articles({ data, nextPage, onPrevPage }) {
     e.currentTarget.style.backgroundColor = "rgb(245,245,245)";
 
     setCurrentSelectedArticle(e.currentTarget.id);
-
-    if (currentArticleInView.scrollTop > 0) {
-      currentArticleInView.scrollTop = 0;
-    }
   };
 
   return (

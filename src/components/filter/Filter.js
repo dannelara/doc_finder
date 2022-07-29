@@ -1,18 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { GlobalStateContext } from "../../globals/GlobalState";
 import { Button, Input, P } from "../../utils";
 
 import { Container, StyledInput, StyledLabel } from "./Styles";
-import { filter_sort_data, filter_doc_types_data } from "./data/elementData";
+// import { filter_sort_data, filter_doc_types_data } from "./data/elementData";
 import { BsFilter } from "react-icons/bs";
 import FilterSection from "./filterSection/FilterSection";
 export default function Filter() {
-  const { setSearchOptions } = React.useContext(GlobalStateContext);
-  // console.log(filter_sort_data);
-
-  // filter_sort_data.forEach((item) => {
-  //   console.log(item[item]);
-  // });
+  const { setSearchOptions, filter_options, setFilter_options } =
+    React.useContext(GlobalStateContext);
 
   const reset = () => {
     // FLytta till filterSection ?? checkboxes must be unchecked
@@ -37,7 +33,17 @@ export default function Filter() {
             <P type="light">SORTERA</P>
           </Container>
           <Container type="sub-small">
-            <FilterSection data={filter_sort_data} id="sort" />
+            <FilterSection id="sort" />
+          </Container>
+        </Container>
+        <Container type="sub-big">
+          <Container type="sub-small-top">
+            <P type="light">Datum</P>
+          </Container>
+          <Container type="sub-small">
+            {/* {filter_options?.doktyp && (
+              <FilterSection data={filter_options.doktyp} id="doktyp" />
+            )} */}
           </Container>
         </Container>
         <Container type="sub-big">
@@ -45,7 +51,19 @@ export default function Filter() {
             <P type="light">DOKUMENTTYP</P>
           </Container>
           <Container type="sub-small">
-            <FilterSection data={filter_doc_types_data} id="doktyp" />
+            {filter_options?.doktyp && (
+              <FilterSection data={filter_options.doktyp} id="doktyp" />
+            )}
+          </Container>
+        </Container>
+        <Container type="sub-big">
+          <Container type="sub-small-top">
+            <P type="light">UTSKOTT/ORGAN</P>
+          </Container>
+          <Container type="sub-small">
+            {/* {filter_options?.organ && (
+              <FilterSection data={filter_options.organ} id="organ" />
+            )} */}
           </Container>
         </Container>
         <Container type="sub-big">

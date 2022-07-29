@@ -13,7 +13,7 @@ import * as API from "../../fetch.js";
 import Button from "../../utils/button/Button";
 import checkString from "../../helpers/checkString";
 
-export default function SearchBar({ getArticles }) {
+export default function SearchBar({ getArticles, setfilte_Mode }) {
   const { searchString, setSearchString, searchOptions, setSearchOptions } =
     React.useContext(GlobalStateContext);
 
@@ -41,6 +41,7 @@ export default function SearchBar({ getArticles }) {
           ["start"]: startDate,
           ["end"]: endDate,
         }));
+        setfilte_Mode(1);
       } catch (error) {
         console.error(error);
         setError_msg(error.message);
