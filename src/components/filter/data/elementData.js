@@ -309,4 +309,14 @@ const filter_organ_data = [
   { EUN: "EU-nämnden" },
 ];
 
-export { filter_sort_data, filter_doc_types_data, filter_organ_data };
+const filter_datum_data = [
+  {
+    Datum: "Senaste",
+  },
+];
+export {
+  filter_sort_data,
+  filter_doc_types_data,
+  filter_organ_data,
+  filter_datum_data,
+};

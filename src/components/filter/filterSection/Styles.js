@@ -30,7 +30,7 @@ export const StyledLabel = styled.label`
   font-size: 11px;
   color: black;
   font-weight: 1000;
-  text-align: center;
+  text-align: start;
   display: flex;
   justify-content: center;
   align-items: start;

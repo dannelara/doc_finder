@@ -153,6 +153,7 @@ export default function Finder() {
     if (searchString) {
       getArticles();
       // fetchAllArticles();
+      console.log(searchOptions);
     }
   }, [
     searchString,

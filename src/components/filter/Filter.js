@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { GlobalStateContext } from "../../globals/GlobalState";
 import { Button, Input, P } from "../../utils";
-
+import { filter_datum_data } from "./data/elementData";
 import { Container, StyledInput, StyledLabel } from "./Styles";
 // import { filter_sort_data, filter_doc_types_data } from "./data/elementData";
 import { BsFilter } from "react-icons/bs";
@@ -33,7 +33,7 @@ export default function Filter() {
             <P type="light">SORTERA</P>
           </Container>
           <Container type="sub-small">
-            <FilterSection id="sort" />
+            <FilterSection data={filter_datum_data} id="sort" />
           </Container>
         </Container>
         <Container type="sub-big">
@@ -43,6 +43,10 @@ export default function Filter() {
           <Container type="sub-small">
             {/* {filter_options?.doktyp && (
               <FilterSection data={filter_options.doktyp} id="doktyp" />
+            )} */}
+
+            {/* {filter_datum_data && (
+              <FilterSection data={filter_datum_data} id="datum" />
             )} */}
           </Container>
         </Container>
