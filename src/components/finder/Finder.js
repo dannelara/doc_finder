@@ -5,7 +5,7 @@ import SearchBar from "../searchBar/SearchBar";
 import { Container } from "./Styles";
 import * as API from "../../fetch.js";
 import ArticleView from "../articleView/ArticleView";
-
+import { filter_organ_data } from "../filter/data/elementData.js";
 export default function Finder() {
   const {
     searchString,
@@ -14,18 +14,20 @@ export default function Finder() {
     setSearchOptions,
     allArticles,
     setAllArticles,
+    filter_options,
+    setFilter_options,
   } = React.useContext(GlobalStateContext);
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState(null);
 
-  const [mode, setMode] = useState(0);
+  const [filte_mode, setfilte_Mode] = useState(0);
   // const [page, setPage] = useState(1);
   // console.log(data);
 
   useEffect(() => {}, [searchOptions]);
   const reset = () => {
     setSearchString("");
-    setMode(0);
+    setfilte_Mode(0);
     setData(null);
 
     console.log("Startar om");
@@ -63,7 +65,57 @@ export default function Finder() {
   //   // }
   // };
 
+  const setFilters = ({ dokumentlista }) => {
+    // const { document } = dokumentlista;
+
+    // const filter_docs = {
+    //   doktyp: [],
+    //   organ: [],
+    // };
+
+    const doktyp = [];
+    const organ = [];
+    const { dokument } = dokumentlista;
+
+    dokument.forEach((dok) => {
+      if (!doktyp.some((e) => e[dok.doktyp] === dok.debattnamn)) {
+        doktyp[doktyp.length] = { [dok.doktyp]: dok.debattnamn };
+      }
+    });
+
+    setFilter_options((old) => ({
+      ...old,
+      ["doktyp"]: doktyp,
+      // Change this code mate!
+      ["organ"]: filter_organ_data,
+    }));
+
+    // dokument.forEach((dok) => {
+    //   if (
+    //     !filter_docs.doktyp.includes({
+    //       [dok.doktyp]: dok.debattnamn,
+    //     })
+    //   ) {
+    //     filter_docs.doktyp[filter_docs.doktyp.length] = {
+    //       [dok.doktyp]: dok.debattnamn,
+    //     };
+    //   }
+    // });
+
+    //   dokument.forEach((dok) => {
+    //     if (
+    //       filter_docs.doktyp.filter((e) => e[dok.debaty] === dok.debattnamn) ===
+    //       -1
+    //     ) {
+    //       filter_docs.doktyp[filter_docs.doktyp.length] = {
+    //         [dok.doktyp]: dok.debattnamn,
+    //       };
+    //     }
+    //   });
+  };
+
   const getArticles = async (url, page) => {
+    setfilte_Mode(1);
     try {
       setLoading(true);
 
@@ -74,13 +126,20 @@ export default function Finder() {
         page
       );
 
-      // console.log(articles);
-      // setPage(parseInt(data.dokumentlista["@sida"]));
-      // console.log("current page", page);
-      // console.log("Nästa sida", page);
+      // Temporary solution to not update the filters after the first search made thru the search
+      if (filte_mode > 0) {
+        setFilters(data);
+      }
+
+      setfilte_Mode(0);
+
       setData(data);
       setLoading(false);
-      document.querySelector("#articles").scrollTop = 0;
+      // Makes error occur
+      const doc = document.querySelector("#articles");
+      if (doc.scrollTop > 0) {
+        doc.scrollTop = 0;
+      }
     } catch (error) {
       console.error(error);
     }
@@ -101,11 +160,12 @@ export default function Finder() {
     searchOptions.end,
     searchOptions.doktyp,
     searchOptions.sort,
+    searchOptions.organ,
   ]);
 
   return (
     <Container type="big">
-      <SearchBar setMode={setMode} />
+      <SearchBar setfilte_Mode={setfilte_Mode} />
       <Container type="big-flex">
         <Container type="left">
           <Articles
