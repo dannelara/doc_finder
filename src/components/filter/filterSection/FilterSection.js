@@ -32,7 +32,6 @@ export default function FilterSection({ data, id }) {
         }
       });
     } else {
-      //   setFilterValue("");
       setSearchOptions((prevState) => ({
         ...prevState,
         [key]: "",
@@ -40,9 +39,6 @@ export default function FilterSection({ data, id }) {
     }
   };
 
-  // useEffect(() => {
-  //   console.log(data);
-  // }, [data]);
   return (
     <Container type="container" id={id}>
       {data &&
