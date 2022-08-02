@@ -79,7 +79,7 @@ export const TopContainer = styled.div`
     
   ${(props) =>
     props.type === "sub" && {
-      flexGrow: "1",
+      width: "50%",
       display: "flex",
       alignItems: "center",
       justifyContent: "center",

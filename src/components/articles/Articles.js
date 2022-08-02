@@ -3,7 +3,7 @@ import Filter from "../filter/Filter";
 import { Container, TopContainer } from "./Styles";
 import Article from "../article/Article";
 import { GlobalStateContext } from "../../globals/GlobalState";
-import { Button, P } from "../../utils";
+import { Button, Link, P } from "../../utils";
 
 import { AiOutlineArrowLeft, AiOutlineArrowRight } from "react-icons/ai";
 export default function Articles({ data, nextPage, onPrevPage }) {
@@ -44,7 +44,6 @@ export default function Articles({ data, nextPage, onPrevPage }) {
         <TopContainer type="top">
           {dokuments ? (
             <>
-              {" "}
               <TopContainer type="sub-big">
                 <TopContainer type="sub">
                   <P type="light">
@@ -53,6 +52,11 @@ export default function Articles({ data, nextPage, onPrevPage }) {
                   <P type="article-top">
                     {dokuments["@traffar"]} träffar för "{searchString}"
                   </P>
+                </TopContainer>
+                <TopContainer type="sub">
+                  <Link to="/analys">
+                    <P type="article-top">Analysera</P>
+                  </Link>
                 </TopContainer>
               </TopContainer>
               <TopContainer type="sub-big">
@@ -79,7 +83,7 @@ export default function Articles({ data, nextPage, onPrevPage }) {
                         style={{
                           color: "#ffff",
                         }}
-                      ></AiOutlineArrowRight>
+                      />
                     </Button>
                   </TopContainer>
                 </TopContainer>

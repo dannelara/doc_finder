@@ -83,11 +83,24 @@ export default function Finder() {
       }
     });
 
+    dokument.forEach((dok) => {
+      if (
+        !organ.some((e) => e[dok.organ] === dok.organ) &&
+        dok.organ.length !== 0
+      ) {
+        organ[organ.length] = { [dok.organ]: dok.organ };
+      }
+    });
+
+    console.log(organ);
+    // dokument.forEach((dok) => {
+    //   console.log(dok.organ);
+    // });
     setFilter_options((old) => ({
       ...old,
       ["doktyp"]: doktyp,
       // Change this code mate!
-      ["organ"]: filter_organ_data,
+      ["organ"]: organ,
     }));
 
     // dokument.forEach((dok) => {
@@ -153,7 +166,7 @@ export default function Finder() {
     if (searchString) {
       getArticles();
       // fetchAllArticles();
-      console.log(searchOptions);
+      // console.log(searchOptions);
     }
   }, [
     searchString,

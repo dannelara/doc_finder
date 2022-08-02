@@ -314,6 +314,7 @@ const filter_datum_data = [
     Datum: "Senaste",
   },
 ];
+
 export {
   filter_sort_data,
   filter_doc_types_data,
