@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import Filter from "../filter/Filter";
 import { Container, TopContainer } from "./Styles";
-import Article from "../article/Article";
+import Article from "../../article/Article";
 import { GlobalStateContext } from "../../../globals/GlobalState";
 import { Button, Link, P } from "../../../utils";
 
