@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
-import { GlobalStateContext } from "../../globals/GlobalState";
-import { Button, Input, P } from "../../utils";
+import { GlobalStateContext } from "../../../globals/GlobalState";
+import { Button, Input, P } from "../../../utils";
 import { filter_datum_data, filter_sort_data } from "./data/elementData";
 import { Container, StyledInput, StyledLabel } from "./Styles";
 // import { filter_sort_data, filter_doc_types_data } from "./data/elementData";

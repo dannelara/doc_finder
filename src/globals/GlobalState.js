@@ -6,6 +6,7 @@ const GlobalState = ({ children }) => {
   const currentStoredSearchString = localStorage.getItem("search_string")
     ? JSON.parse(localStorage.getItem("search_string"))
     : undefined;
+  const [data, setData] = useState(null);
 
   // FIX THIS! Search string must be saved to the local storage!
   const [searchString, setSearchString] = useState(currentStoredSearchString);
@@ -33,6 +34,9 @@ const GlobalState = ({ children }) => {
     setAllArticles,
     filter_options,
     setFilter_options,
+    // Articles data
+    data,
+    setData,
   };
 
   return (

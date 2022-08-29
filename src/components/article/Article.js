@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { P } from "../../utils";
+import { P } from "../../../utils";
 import { StyledP } from "./Styles";
 import { Container, StyledA } from "./Styles";
-import sanitizeString from "../../helpers/sanitizeString";
-import { GlobalStateContext } from "../../globals/GlobalState";
+import sanitizeString from "../../../helpers/sanitizeString";
+import { GlobalStateContext } from "../../../globals/GlobalState";
 export default function Article({ article, onClick, id }) {
   const { searchString } = React.useContext(GlobalStateContext);
 

@@ -1,11 +1,11 @@
 import React, { useEffect, useRef, useState } from "react";
 import { GlobalStateContext } from "../../globals/GlobalState";
-import Articles from "../articles/Articles";
+import Articles from "./articles/Articles";
 import SearchBar from "../searchBar/SearchBar";
 import { Container } from "./Styles";
 import * as API from "../../fetch.js";
-import ArticleView from "../articleView/ArticleView";
-import { filter_organ_data } from "../filter/data/elementData.js";
+import ArticleView from "./articleView/ArticleView";
+import { filter_organ_data } from "./filter/data/elementData.js";
 export default function Finder() {
   const {
     searchString,
@@ -16,9 +16,10 @@ export default function Finder() {
     setAllArticles,
     filter_options,
     setFilter_options,
+    data,
+    setData,
   } = React.useContext(GlobalStateContext);
   const [loading, setLoading] = useState(false);
-  const [data, setData] = useState(null);
 
   const [filte_mode, setfilte_Mode] = useState(0);
   // const [page, setPage] = useState(1);

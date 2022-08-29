@@ -2,8 +2,8 @@ import React, { useEffect } from "react";
 import Filter from "../filter/Filter";
 import { Container, TopContainer } from "./Styles";
 import Article from "../article/Article";
-import { GlobalStateContext } from "../../globals/GlobalState";
-import { Button, Link, P } from "../../utils";
+import { GlobalStateContext } from "../../../globals/GlobalState";
+import { Button, Link, P } from "../../../utils";
 
 import { AiOutlineArrowLeft, AiOutlineArrowRight } from "react-icons/ai";
 export default function Articles({ data, nextPage, onPrevPage }) {

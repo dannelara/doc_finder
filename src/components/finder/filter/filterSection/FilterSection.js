@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { GlobalStateContext } from "../../../globals/GlobalState";
+import { GlobalStateContext } from "../../../../globals/GlobalState";
 import { Container, StyledInput, StyledLabel } from "./Styles";
 
 export default function FilterSection({ data, id }) {

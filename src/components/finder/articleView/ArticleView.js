@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { GlobalStateContext } from "../../globals/GlobalState";
+import { GlobalStateContext } from "../../../globals/GlobalState";
 import { Container } from "./Styles";
-import * as API from "../../fetch.js";
+import * as API from "../../../fetch.js";
 
 export default function ArticleView() {
   const { currentSelectedArticle, setCurrentSelectedArticle } =
